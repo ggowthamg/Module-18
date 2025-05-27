@@ -1,9 +1,9 @@
-# Ex. No: 18D - Travelling Salesman Problem (TSP)
+Ex. No: 18D - Travelling Salesman Problem (TSP)
 
-## AIM:
+AIM:
 To write a Python program to find the shortest possible route that visits every city exactly once and returns to the starting point using the **Travelling Salesman Problem (TSP)** approach.
 
-## ALGORITHM:
+ALGORITHM:
 
 **Step 1**: Start the program.
 
@@ -21,15 +21,55 @@ To write a Python program to find the shortest possible route that visits every 
 
 **Step 7**: End the program.
 
-## PYTHON PROGRAM
+PYTHON PROGRAM
 
-```
-ENTER YOUR CODE HERE
-```
 
-## OUTPUT
-```
-```
+from sys import maxsize
+from itertools import permutations
+V = 4
 
-##RESULT
+
+def travellingSalesmanProblem(graph, s):
+
+
+	vertex = []
+	for i in range(V):
+		if i != s:
+			vertex.append(i)
+	min_path=maxsize
+	next_permutation=permutations(vertex)
+	for i in next_permutation:
+	    
+
+	
+		current_pathweight = 0
+		k=s
+		for j in i:
+		    current_pathweight+=graph[k][j]
+		    k=j
+		current_pathweight+=graph[k][s]
+		min_path=min(min_path, current_pathweight)
+	return min_path
+
+		
+if __name__ == "__main__":
+
+
+	graph = [[0, 10, 15, 20], [10, 0, 35, 25],
+			[15, 35, 0, 30], [20, 25, 30, 0]]
+	s = int(input())
+	print(travellingSalesmanProblem(graph, s))
+
+
+
+
+OUTPUT
+
+![image](https://github.com/user-attachments/assets/7eab72d7-04ec-4eec-93a3-406ce7c127e0)
+
+
+
+RESULT
+
+Thus the program to find the shortest possible route using the **Travelling Salesman Problem (TSP)** approach has been implemented and executed successfully.
 
